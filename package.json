@@ -16,12 +16,12 @@
     "postcss-cli": "^7.1.1"
   },
   "scripts": {
-    "start": "yarn watch:css && react-scripts start",
-    "build": "yarn build:css && react-scripts build",
+    "css:build": "postcss src/tailwind.css -o src/index.css",
+    "css:watch": "postcss src/tailwind.css -o src/index.css -w",
+    "start": "yarn css:watch & react-scripts start",
+    "build": "yarn css:build && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:css": "postcss src/tailwind.css -o src/index.css",
-    "watch:css": "postcss src/tailwind.css -o src/index.css"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
